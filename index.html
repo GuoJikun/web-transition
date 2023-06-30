@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Component Transition</title>
+  <style>
+    .slide-fade-enter-active {
+      transition: all 0.8s ease-out;
+    }
+
+    .slide-fade-leave-active {
+      transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+    }
+
+    .slide-fade-enter-from,
+    .slide-fade-leave-to {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+
+    .open {
+      display: block;
+    }
+
+    .hide {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div style="margin-bottom: 24px;">
+      <input type="button" value="按钮" id="btn">
+    </div>
+
+    <ivy-transition id="target" open="open" data-name="slide-fade">
+      <div>123</div>
+    </ivy-transition>
+
+
+
+  </div>
+  <div>
+    <input type="button" value="显示" id="open">
+    <input type="button" value="隐藏" id="hide">
+    <br>
+    <div id="test" style="height: 100px;width: 200px;background-color: blueviolet;">
+    </div>
+
+
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
